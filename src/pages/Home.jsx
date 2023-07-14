@@ -3,6 +3,7 @@ import List from "../components/List";
 import Calendar from "../components/Calendar";
 
 const Home = () => {
+
   return (
     <Div>
       <Calendar></Calendar>
@@ -11,6 +12,7 @@ const Home = () => {
     </Div>
   );
 };
+
 export default Home;
 
 const Div = styled.div`

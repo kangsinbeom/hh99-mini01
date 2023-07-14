@@ -1,21 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import CalendarItem from "./CalendarItem";
+import logo from "../style/img/calender.png";
 
 const Calendar = () => {
-  return (
-    <CalendarWrapper>
-      <CalendarItem></CalendarItem>
-    </CalendarWrapper>
-  );
+  return <CalendarWrapper src={logo}></CalendarWrapper>;
 };
 
 export default Calendar;
 
-const CalendarWrapper = styled.div`
-  display: flex;
+const CalendarWrapper = styled.img`
+  display: block;
   justify-content: center;
-  border: 1px solid black;
   width: 80%;
   height: 400px;
   gap: 15px;

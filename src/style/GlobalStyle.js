@@ -1,5 +1,5 @@
-import reset from "styled-reset"
-import { createGlobalStyle } from "styled-components"
+import reset from "styled-reset";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalSylte = createGlobalStyle`
   ${reset}
@@ -9,10 +9,6 @@ const GlobalSylte = createGlobalStyle`
   
   * {
     box-sizing: border-box;
-    font-family: 'Nanum Pen Script', cursive;
-  }
-  
-  body {
     font-family: 'Nanum Pen Script', cursive;
   }
 
