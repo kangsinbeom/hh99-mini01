@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
-
+import Button from "../components/common/Button";
+import Input from "../components/common/Input";
 const List = () => {
   return (
     <ListWrapper>
       <ListItem></ListItem>
+      <Button>test button</Button>
+      <Input />
     </ListWrapper>
   );
 };

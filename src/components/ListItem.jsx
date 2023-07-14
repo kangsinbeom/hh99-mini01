@@ -1,26 +1,20 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useQuery } from "react-query";
+import { getTodos } from "../apis/api";
 
 const ListItem = () => {
-  const [todos, setTodos] = useState([]);
-
-  //json값을 조회하는 용도
-  const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:4000/todos");
-    console.log(data);
-    setTodos(data);
-  };
-
-  //처음마운트 될때 한번만 실행되도록
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
+  const { isLoading, isError, data, error } = useQuery("todos", getTodos);
+  console.log(data);
+  if (isLoading) {
+    <p>Loading</p>;
+  }
+  if (isError) {
+    <p>{error}</p>;
+  }
   return (
     <>
-      {todos.map((item) => {
+      {data?.map((item) => {
         return (
           <ListItmeBox key={item.id}>
             <div>{item.time}</div>
