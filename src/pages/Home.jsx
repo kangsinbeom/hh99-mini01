@@ -1,13 +1,20 @@
 import styled from "styled-components";
+import List from "../components/List";
+import Calendar from "../components/Calendar";
+
 const Home = () => {
-  return <Div>asdfasdfasd</Div>;
+  return (
+    <Div>
+      <Calendar></Calendar>
+      <List></List>
+    </Div>
+  );
 };
 
 export default Home;
 
 const Div = styled.div`
+  width: 90%;
+  margin: 10px auto;
   display: flex;
-  width: 200px;
-  height: 200px;
-  border: 30px solid black;
 `;
