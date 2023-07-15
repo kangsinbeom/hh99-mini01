@@ -1,7 +1,7 @@
 import styled from "styled-components";
-const Button = ({ width, height, children }) => {
+const Button = ({ width, height, children, onClick }) => {
   return (
-    <ButtonWrapper width={width} height={height}>
+    <ButtonWrapper onClick={onClick} width={width} height={height}>
       {children}
     </ButtonWrapper>
   );

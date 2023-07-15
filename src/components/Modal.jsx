@@ -1,7 +1,8 @@
-import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Button from "./common/Button";
 import { toogleModal } from "../redux/modules/modal";
+
 const Modal = () => {
   const { modalChecked } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
@@ -10,46 +11,39 @@ const Modal = () => {
   };
 
   return (
-    <Wrapper>
-      {modalChecked &&
-        createPortal(
-          <>
-            <ModalBackground />
-            <ModalContents>
-              <span>title</span>
-              <input type="text" />
-              <span>date</span>
-              <input type="text" />
-              <span>time</span>
-              <input type="text" />
-              <button>input</button>
-              <button onClick={onClickModalHandler}> X </button>
-            </ModalContents>
-          </>,
-          document.getElementById("modal")
-        )}
-    </Wrapper>
+    <>
+      {modalChecked && (
+        <>
+          <ModalContent>
+            <input type="text" />
+            <input type="text" />
+            <Button onClick={onClickModalHandler} width={100}>
+              hello
+            </Button>
+          </ModalContent>
+          <ModalBackground></ModalBackground>
+        </>
+      )}
+    </>
   );
 };
 
 export default Modal;
 
-const ModalContents = styled.div`
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
+const ModalContent = styled.div`
+  width: 300px;
+  height: 300px;
+  position: fixed;
   top: 50%;
   left: 50%;
-  > * {
-    margin-bottom: 5px;
-  }
-
-  position: fixed;
+  transform: translate(-50%, -50%);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  z-index: 100;
 `;
 
 const ModalBackground = styled.div`
@@ -61,5 +55,3 @@ const ModalBackground = styled.div`
   top: 0;
   left: 0;
 `;
-
-const Wrapper = styled.div``;

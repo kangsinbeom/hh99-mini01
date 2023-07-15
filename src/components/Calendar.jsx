@@ -1,63 +1,50 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CalendarItem from "./CalendarItem";
-import logo from "../style/img/calender.png";
 import { format, addMonths, subMonths } from "date-fns";
-
-const RenderHeader = ({ currentMonth, prevMonth, nextMonth }) => {
-  return (
-    <Header>
-      <div>
-        <span>
-          <span className="text month"> {format(currentMonth, "yyyy")} </span>
-          {format(currentMonth, "M")}월
-        </span>
-      </div>
-      <div>
-        <HeaderArrow onClick={prevMonth}>⬅️</HeaderArrow>
-        <HeaderArrow onClick={nextMonth}>➡️</HeaderArrow>
-      </div>
-    </Header>
-  );
-};
-
-const RenderDays = () => {
-  const days = [];
-  const date = ["Sun", "Mon", "Thu", "Wed", "Thrs", "Fri", "Sat"];
-
-  for (let i = 0; i < 7; i++) {
-    days.push(<div key={i}>{date[i]}</div>);
-  }
-
-  return <Days>{days}</Days>;
-};
-
+import { toogleModal } from "../redux/modules/modal";
+import { useDispatch, useSelector } from "react-redux";
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  // const [selectedDate, setSelectedDate] = useState(new Date());
+  const dispatch = useDispatch();
+  // 전역관리에 list가 들어가면 상태가 업데이트 될때 걔네들도 다시 랜더링 되는건가?
+  const dates = ["Sun", "Mon", "Thu", "Wed", "Thrs", "Fri", "Sat"];
 
   const prevMonth = () => {
     setCurrentMonth(subMonths(currentMonth, 1));
   };
+
   const nextMonth = () => {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
-  // const onDateClick = (day) => {
-  //   setSelectedDate(day);
-  // };
+
+  // onClick시 day 정보 redux로 전달 및 modal open/close
+  const onDateClick = () => {
+    dispatch(toogleModal());
+  };
+
   return (
     <CalendarWrapper>
-      {/* <CalendarImg src={logo}></CalendarImg> */}
-      <RenderHeader
-        currentMonth={currentMonth}
-        prevMonth={prevMonth}
-        nextMonth={nextMonth}
-      ></RenderHeader>
-      <RenderDays></RenderDays>
+      <Header>
+        <div>
+          <span>
+            <span className="text month"> {format(currentMonth, "yyyy")} </span>
+            {format(currentMonth, "M")}월
+          </span>
+        </div>
+        <div>
+          <HeaderArrow onClick={prevMonth}>⬅️</HeaderArrow>
+          <HeaderArrow onClick={nextMonth}>➡️</HeaderArrow>
+        </div>
+      </Header>
+      <Days>
+        {dates.map((date, idx) => (
+          <div key={idx}>{date}</div>
+        ))}
+      </Days>
       <CalendarItem
         currentMonth={currentMonth}
-        // selectedDate={selectedDate}
-        // onDateClick={onDateClick}
+        onDateClick={onDateClick}
       ></CalendarItem>
     </CalendarWrapper>
   );
@@ -65,19 +52,11 @@ const Calendar = () => {
 
 export default Calendar;
 
-const CalendarImg = styled.img`
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  height: 400px;
-  gap: 15px;
-`;
-
 const CalendarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 400px;
+  max-height: 400px;
   gap: 15px;
 `;
 
