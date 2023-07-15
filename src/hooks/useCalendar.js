@@ -9,6 +9,7 @@ import {
 import { useDispatch } from "react-redux";
 import {setCalendar} from "../redux/modules/calendar"
 
+
 const useCalendar = (currentMonth) => {
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
@@ -19,21 +20,22 @@ const useCalendar = (currentMonth) => {
   const rows = [];
   let days = [];
   let day = startDate;
-  let formattedDate = "";
-
+  
   while (day <= endDate) {
     for (let i = 0; i < 7; i++) {
-      formattedDate = format(day, "d");
+      const date = format(day, "d");
+      const id = format(day, "yyyy-MM-dd");
+      
       days.push({
-        id: day,
-        date: formattedDate
+        id,
+        date,
       })
       day = addDays(day, 1);
     }
     rows.push(days)
     days = [];
   }
-  return dispatch(setCalendar(rows));
+  dispatch(setCalendar(rows))
 };
 
 export default useCalendar;
