@@ -37,7 +37,6 @@ const CalendarItem = ({ currentMonth, selectedDate, onDateClick }) => {
       days.push(
         <CalendarCell
           key={day.toString()} // 날짜를 고유한 키로 사용
-          onClick={() => onDateClick(parse(cloneDay))} // 클릭 이벤트 핸들러 지정
         >
           <span>
             {formattedDate} {/* 형식이 적용된 날짜 문자열 출력 */}
@@ -50,7 +49,7 @@ const CalendarItem = ({ currentMonth, selectedDate, onDateClick }) => {
 
     // 한 주(row)를 저장하는 배열에 날짜(cell) 배열 추가
     rows.push(<CalendarRow key={day.toString()}>{days}</CalendarRow>);
-
+    console.log(rows);
     days = []; // 날짜(cell) 배열 초기화
   }
 

@@ -5,7 +5,7 @@ import { getTodos } from "../apis/api";
 
 const ListItem = () => {
   const { isLoading, isError, data, error } = useQuery("todos", getTodos);
-  console.log(data);
+
   if (isLoading) {
     <p>Loading</p>;
   }
