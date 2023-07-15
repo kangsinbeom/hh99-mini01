@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import CalendarItem from "./CalendarItem";
-import Modal from "./Modal";
 import { format, addMonths, subMonths } from "date-fns";
-import { useDispatch, useSelector } from "react-redux";
 import { toogleModal } from "../redux/modules/modal";
-
+import { useDispatch, useSelector } from "react-redux";
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const { modalChecked } = useSelector((state) => state.modal);
+  const dispatch = useDispatch();
   // 전역관리에 list가 들어가면 상태가 업데이트 될때 걔네들도 다시 랜더링 되는건가?
   const dates = ["Sun", "Mon", "Thu", "Wed", "Thrs", "Fri", "Sat"];
-  const dispatch = useDispatch();
 
   const prevMonth = () => {
     setCurrentMonth(subMonths(currentMonth, 1));
@@ -23,8 +19,7 @@ const Calendar = () => {
   };
 
   // onClick시 day 정보 redux로 전달 및 modal open/close
-  const onDateClick = (day) => {
-    setSelectedDate(day);
+  const onDateClick = () => {
     dispatch(toogleModal());
   };
 
@@ -49,10 +44,8 @@ const Calendar = () => {
       </Days>
       <CalendarItem
         currentMonth={currentMonth}
-        // selectedDate={selectedDate}
         onDateClick={onDateClick}
       ></CalendarItem>
-      <Modal />
     </CalendarWrapper>
   );
 };
@@ -63,7 +56,7 @@ const CalendarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  height: 400px;
+  max-height: 400px;
   gap: 15px;
 `;
 

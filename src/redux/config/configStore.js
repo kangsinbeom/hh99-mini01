@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todos from "../modules/todos";
+import calendar from "../modules/calendar";
 import modal from "../modules/modal";
 const store = configureStore({
   reducer: {
-    todos,
+    calendar,
     modal,
   }
 });
