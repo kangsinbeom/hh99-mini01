@@ -57,7 +57,7 @@ const Calendar = () => {
       <CalendarItem
         currentMonth={currentMonth}
         selectedDate={selectedDate}
-        // onDateClick={onDateClick}
+        onDateClick={onDateClick}
       ></CalendarItem>
     </CalendarWrapper>
   );
