@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import useCalendar from "../hooks/useCalendar";
 import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
+import { toogleModal } from "../redux/modules/modal";
 import {
   format,
   addDays,
@@ -16,18 +16,19 @@ import {
   daysInWeek,
 } from "date-fns";
 
-const CalendarItem = ({ currentMonth, onDateClick }) => {
-  useCalendar(currentMonth);
-  const rows = useSelector((state) => state.calendar);
-  console.log(rows);
+const CalendarItem = () => {
+  const calendars = useSelector((state) => state.calendar);
   const dispatch = useDispatch();
   const { modalChecked } = useSelector((state) => state.modal);
+  const onDateClick = () => {
+    dispatch(toogleModal());
+  };
 
   return (
     <CalendarBody>
-      {rows.map((days, inx) => (
+      {calendars.map((days, inx) => (
         <CalendarRow key={inx}>
-          {days.map((date) => (
+          {days.map((date, idx) => (
             <CalendarCell onClick={onDateClick} key={date.id} value={date.date}>
               {date.date}
             </CalendarCell>
