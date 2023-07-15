@@ -20,8 +20,9 @@ const CalendarItem = () => {
   const calendars = useSelector((state) => state.calendar);
   const dispatch = useDispatch();
   const { modalChecked } = useSelector((state) => state.modal);
-  const onDateClick = () => {
+  const onDateClick = (id) => {
     dispatch(toogleModal());
+    console.log(id);
   };
 
   return (
@@ -29,7 +30,11 @@ const CalendarItem = () => {
       {calendars.map((days, inx) => (
         <CalendarRow key={inx}>
           {days.map((date, idx) => (
-            <CalendarCell onClick={onDateClick} key={date.id} value={date.date}>
+            <CalendarCell
+              onClick={() => onDateClick(date.id)}
+              key={date.id}
+              value={date.date}
+            >
               {date.date}
             </CalendarCell>
           ))}
