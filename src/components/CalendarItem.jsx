@@ -31,9 +31,12 @@ const CalendarItem = () => {
         <CalendarRow key={inx}>
           {days.map((date, idx) => (
             <CalendarCell
-              onClick={() => onDateClick(date.id)}
+              onClick={onDateClick}
               key={date.id}
               value={date.date}
+              $isSun={date.isSun ? "true" : ""}
+              $isSat={date.isSat ? "true" : ""}
+              $isSameMonth={date.isSameMonth ? "true" : ""}
             >
               {date.date}
             </CalendarCell>
@@ -48,7 +51,7 @@ const CalendarItem = () => {
 export default CalendarItem;
 
 const CalendarBody = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 const CalendarRow = styled.div`
@@ -60,6 +63,17 @@ const CalendarCell = styled.div`
   justify-content: center;
   align-items: center;
   width: 15%;
-  height: 63px;
-  border: 1px solid #ccc;
+  height: 56px;
+  font-size: 24px;
+  filter: blur(0.5px);
+  transform: skewX(-5deg);
+  /* border: 1px solid #ccc; */
+  color: ${(props) =>
+    props.$isSun
+      ? `rgba(255, 0, 0, ${props.$isSameMonth ? 1 : 0.3})`
+      : props.$isSat
+      ? `rgba(0, 0, 255, ${props.$isSameMonth ? 1 : 0.3})`
+      : props.$isSameMonth
+      ? "black"
+      : "rgba(0, 0, 0, 0.3)"};
 `;

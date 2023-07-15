@@ -5,10 +5,10 @@ import {
   endOfWeek,
   startOfMonth,
   endOfMonth,
+  isSameMonth,
 } from "date-fns";
 import { useDispatch } from "react-redux";
-import {setCalendar} from "../redux/modules/calendar"
-
+import { setCalendar } from "../redux/modules/calendar";
 
 const useCalendar = (currentMonth) => {
   const monthStart = startOfMonth(currentMonth);
@@ -18,24 +18,33 @@ const useCalendar = (currentMonth) => {
   const dispatch = useDispatch();
 
   const rows = [];
-  let days = [];
   let day = startDate;
-  
-  while (day <= endDate) {
+
+  while (rows.length < 6) {
+    const week = [];
+
     for (let i = 0; i < 7; i++) {
       const date = format(day, "d");
       const id = format(day, "yyyy-MM-dd");
-      
-      days.push({
+      const isSun = day.getDay() === 0;
+      const isSat = day.getDay() === 6;
+      const isSameMonthValue = isSameMonth(day, currentMonth);
+
+      week.push({
         id,
         date,
-      })
+        isSun,
+        isSat,
+        isSameMonth: isSameMonthValue,
+      });
+
       day = addDays(day, 1);
     }
-    rows.push(days)
-    days = [];
+
+    rows.push(week);
   }
-  dispatch(setCalendar(rows))
+
+  dispatch(setCalendar(rows));
 };
 
 export default useCalendar;

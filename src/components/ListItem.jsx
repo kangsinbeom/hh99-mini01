@@ -37,11 +37,13 @@ const ListItmeBox = styled.div`
   margin: 0 auto;
   text-align: center;
   border-radius: 5px;
-  font-size: 16px;
-  transition: font-size 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  font-size: 20px;
+  filter: blur(0.5px);
+  transform: skewX(-5deg);
+  transition: font-size 0.2s ease-in-out, background-color 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 23px;
     background-color: #dad8d8;
   }
 `;
