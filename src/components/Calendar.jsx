@@ -34,7 +34,7 @@ const RenderDays = () => {
 
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  // const [selectedDate, setSelectedDate] = useState(new Date());
 
   const prevMonth = () => {
     setCurrentMonth(subMonths(currentMonth, 1));
@@ -42,9 +42,9 @@ const Calendar = () => {
   const nextMonth = () => {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
-  const onDateClick = (day) => {
-    setSelectedDate(day);
-  };
+  // const onDateClick = (day) => {
+  //   setSelectedDate(day);
+  // };
   return (
     <CalendarWrapper>
       {/* <CalendarImg src={logo}></CalendarImg> */}
@@ -56,7 +56,7 @@ const Calendar = () => {
       <RenderDays></RenderDays>
       <CalendarItem
         currentMonth={currentMonth}
-        selectedDate={selectedDate}
+        // selectedDate={selectedDate}
         // onDateClick={onDateClick}
       ></CalendarItem>
     </CalendarWrapper>

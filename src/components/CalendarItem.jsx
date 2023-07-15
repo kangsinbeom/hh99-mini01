@@ -36,25 +36,10 @@ const CalendarItem = ({ currentMonth, selectedDate, onDateClick }) => {
       // 날짜(cell) 요소 생성하여 배열에 추가
       days.push(
         <CalendarCell
-          className={`col cell ${
-            !isSameMonth(day, monthStart)
-              ? "disabled" // 현재 월이 아닌 경우 "disabled" 클래스 추가
-              : isSameDay(day, selectedDate)
-              ? "selected" // 선택된 날짜인 경우 "selected" 클래스 추가
-              : format(currentMonth, "M") !== format(day, "M")
-              ? "not-valid" // 다른 월에 속하는 날짜인 경우 "not-valid" 클래스 추가
-              : "valid" // 현재 월에 속하는 날짜인 경우 "valid" 클래스 추가
-          }`}
           key={day.toString()} // 날짜를 고유한 키로 사용
           onClick={() => onDateClick(parse(cloneDay))} // 클릭 이벤트 핸들러 지정
         >
-          <span
-            className={
-              format(currentMonth, "M") !== format(day, "M")
-                ? "text not-valid" // 다른 월에 속하는 날짜인 경우 "not-valid" 클래스 추가
-                : "" // 현재 월에 속하는 날짜인 경우 추가 클래스 없음
-            }
-          >
+          <span>
             {formattedDate} {/* 형식이 적용된 날짜 문자열 출력 */}
           </span>
         </CalendarCell>
