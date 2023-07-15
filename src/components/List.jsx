@@ -15,9 +15,11 @@ const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 20%;
-  max-height: 300px;
+  margin-top: 60px;
+  margin-left: 40px;
+  max-height: 310px;
   overflow: auto;
   &::-webkit-scrollbar {
     display: none;

@@ -14,7 +14,7 @@ const Home = () => {
 export default Home;
 
 const Div = styled.div`
-  width: 90%;
+  width: 880px;
   margin: 10px auto;
   display: flex;
 `;
