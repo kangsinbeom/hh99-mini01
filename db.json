@@ -2,56 +2,56 @@
   "todos": [
     {
       "id": 1,
-      "eventName": "리액트 공부하기",
+      "eventName": "7월 리액트 공부하기",
       "time": "10PM - 12PM",
       "date": "2023-07-05",
       "circleColor": "red"
     },
     {
       "id": 2,
-      "eventName": "타입스크립트 공부하기",
+      "eventName": "7월 타입스크립트 공부하기",
       "time": "3PM - 5PM",
       "date": "2023-07-05",
       "circleColor": "red"
     },
     {
       "id": 3,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "7월 무엇이든지 공부하기",
       "time": "9AM - 12AM",
       "date": "2023-07-05",
       "circleColor": "red"
     },
     {
       "id": 4,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "8월 무엇이든지 하기",
       "time": "9AM - 12AM",
       "date": "2023-08-05",
       "circleColor": "red"
     },
     {
       "id": 5,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "8월 놀기",
       "time": "9AM - 12AM",
       "date": "2023-08-05",
       "circleColor": "red"
     },
     {
       "id": 6,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "9월 무엇이든지 공부하기",
       "time": "9AM - 12AM",
       "date": "2023-09-05",
       "circleColor": "red"
     },
     {
       "id": 7,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "9월 공부하기",
       "time": "9AM - 12AM",
       "date": "2023-09-05",
       "circleColor": "red"
     },
     {
       "id": 8,
-      "eventName": "무엇이든지 공부하기",
+      "eventName": "9월 무엇이든지 ",
       "time": "9AM - 12AM",
       "date": "2023-09-05",
       "circleColor": "red"
@@ -69,6 +69,15 @@
       "time": "9AM - 12AM",
       "date": "2023-07-05",
       "circleColor": "red"
+    },
+    {
+      "newTodo": {
+        "eventName": "리액트 공부하기",
+        "time": "10PM - 12PM",
+        "date": "",
+        "circleColor": "red"
+      },
+      "id": 11
     }
   ]
 }

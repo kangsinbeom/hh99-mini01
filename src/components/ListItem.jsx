@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ListItem = ({ time, eventName }) => {
+const ListItem = ({ time, eventName, date }) => {
   return (
     <ListItmeBox>
       <div>{time}</div>
