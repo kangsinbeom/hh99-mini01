@@ -1,20 +1,76 @@
 {
   "todos": [
     {
-      "eventName": "리스트를 고쳐보자",
+      "eventName": "1월 동안 놀기",
       "start": "12",
-      "end": "19",
-      "date": "2023-07-05",
-      "circleColor": "red",
+      "end": "23",
+      "date": "2023-01-04",
+      "circleColor": "yellow",
       "id": 1
     },
     {
-      "eventName": "제발 좀 되라",
-      "start": "12",
-      "end": "13",
-      "date": "2023-07-07",
-      "circleColor": "violet",
+      "eventName": "2월 내내 잠자기",
+      "start": "1",
+      "end": "22",
+      "date": "2023-02-01",
+      "circleColor": "red",
       "id": 2
+    },
+    {
+      "eventName": "3월 동안 공부하기",
+      "start": "23",
+      "end": "24",
+      "date": "2023-03-22",
+      "circleColor": "yellow",
+      "id": 3
+    },
+    {
+      "eventName": "4월 하루 놀기",
+      "start": "12",
+      "end": "23",
+      "date": "2023-04-13",
+      "circleColor": "red",
+      "id": 4
+    },
+    {
+      "eventName": "5월동안 놀기",
+      "start": "12",
+      "end": "23",
+      "date": "2023-05-11",
+      "circleColor": "red",
+      "id": 5
+    },
+    {
+      "eventName": "6월 동안 공부하기",
+      "start": "12",
+      "end": "23",
+      "date": "2023-06-14",
+      "circleColor": "red",
+      "id": 6
+    },
+    {
+      "eventName": "7월 동안 공부하기",
+      "start": "1",
+      "end": "23",
+      "date": "2023-07-21",
+      "circleColor": "red",
+      "id": 7
+    },
+    {
+      "eventName": "123123",
+      "start": "12",
+      "end": "12",
+      "date": "2023-07-13",
+      "circleColor": "yellow",
+      "id": 8
+    },
+    {
+      "eventName": "",
+      "start": "",
+      "end": "",
+      "date": "2023-07-21",
+      "circleColor": "red",
+      "id": 9
     }
   ]
 }

@@ -4,7 +4,7 @@ import CalendarContainor from "../containor/CalendarContainor";
 const Home = () => {
   return (
     <Div>
-      <CalendarContainor></CalendarContainor>
+      <Calendar></Calendar>
     </Div>
   );
 };

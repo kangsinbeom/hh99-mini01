@@ -4,8 +4,24 @@ import { format } from "date-fns";
 import img from "../style/img/calender.png";
 import Rarrow from "../style/img/arrowright.png";
 import Larrow from "../style/img/arrowleft.png";
-import List from "./List";
-const Calendar = ({ currentMonth, month, prevMonth, nextMonth, calendars }) => {
+import ListContainor from "../containor/ListContainor";
+import CalendarItemContainor from "../containor/CalendarItemContainor";
+
+const Calendar = () => {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const month = format(currentMonth, "M");
+  useCalendar(currentMonth);
+
+  const prevMonth = () => {
+    setCurrentMonth(subMonths(currentMonth, 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentMonth(addMonths(currentMonth, 1));
+  };
+
+  // onClick시 day 정보 redux로 전달 및 modal open/close
+
   return (
     <>
       <CalendarWrapper>
@@ -25,28 +41,10 @@ const Calendar = ({ currentMonth, month, prevMonth, nextMonth, calendars }) => {
           <div key={idx}>{date}</div>
         ))} */}
         </Days>
-        {/* <CalendarItem></CalendarItem> */}
-        <CalendarBody>
-          {calendars.map((days, inx) => (
-            <CalendarRow key={inx}>
-              {days.map((date) => (
-                <CalendarItem
-                  key={date.id}
-                  value={date.date}
-                  $isSun={date.isSun ? "true" : ""}
-                  $isSat={date.isSat ? "true" : ""}
-                  $isSameMonth={date.isSameMonth ? "true" : ""}
-                >
-                  {date.date}
-                </CalendarItem>
-              ))}
-            </CalendarRow>
-          ))}
-          {/* {modalChecked && <Modal />} */}
-        </CalendarBody>
+        <CalendarItemContainor />
         <CarendarImg src={img}></CarendarImg>
       </CalendarWrapper>
-      <List />
+      <ListContainor month={month} />
     </>
   );
 };

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "./common/Button";
 import { toogleModal } from "../redux/modules/modal";
 import Selecter from "./common/Selector";
-import { QueryClient, useMutation } from "react-query";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 import { addTodo } from "../apis/api";
 import { useEffect, useState } from "react";
 
@@ -16,7 +16,7 @@ const Modal = () => {
     start: "",
     end: "",
     date,
-    circleColor: "",
+    circleColor,
   });
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
