@@ -2,25 +2,42 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "./common/Button";
 import { toogleModal } from "../redux/modules/modal";
-import Input from "./common/Input";
 import Selecter from "./common/Selector";
-import { QueryClient, useMutation, useQuery } from "react-query";
+import { QueryClient, useMutation } from "react-query";
 import { addTodo } from "../apis/api";
-import useInput from "../hooks/useInput";
+import { useEffect, useState } from "react";
+
 const Modal = () => {
-  // color랑 id는 API로 받아와야 유지가 되겠군
-  const { date, modalChecked, circleColor } = useSelector(
+  const { modalChecked, date, circleColor } = useSelector(
     (state) => state.modal
   );
-  const queryClient = new QueryClient();
-  const dispatch = useDispatch();
-  const newTodo = {
-    eventName: "리액트 공부하기",
-    time: "10PM - 12PM",
+  const [color, setColor] = useState("");
+
+  const initialState = {
+    eventName: "",
+    start: "",
+    end: "",
     date,
-    circleColor,
+    circleColor: color,
   };
-  const { eventName, onChange } = useInput();
+  const [todo, setTodo] = useState(initialState);
+  const onChangeTodosHandler = (e) => {
+    const { name, value } = e.target;
+    let newValue = value;
+    name !== "eventName" && (newValue = value.replace(/\D/g, ""));
+    const newTodo = {
+      ...todo,
+      [name]: newValue,
+    };
+    setTodo(newTodo);
+  };
+  console.log(todo);
+  useEffect(() => {
+    setColor(circleColor);
+  }, [circleColor]);
+  const dispatch = useDispatch();
+  const queryClient = new QueryClient();
+
   const mutation = useMutation(addTodo, {
     onSuccess: () => {
       queryClient.invalidateQueries("todos");
@@ -32,25 +49,73 @@ const Modal = () => {
   };
 
   const onClickSubmitHandler = () => {
-    mutation.mutate({ newTodo });
+    mutation.mutate(todo);
+    dispatch(toogleModal());
+    setTodo(initialState);
   };
+
   return (
     <>
       {modalChecked && (
         <>
-          <ModalContent>
+          <ModalContent $circleColor={circleColor}>
             <span>할 일</span>
             {/* css가 undefined가 뜨는데 왜일까? */}
-            <div className="circle" circlecolor={circleColor} />
+            <div className="circle" />
             <p className="date">날짜 : {date}</p>
-            <p className="count">0/20</p>
-            <Input
+            <p className="count">{todo.eventName.length}/20</p>
+            <InputBox
               type="text"
+              maxLength={19}
               width={220}
-              value={eventName}
-              onChange={onChange}
+              name="eventName"
+              value={todo.eventName}
+              onChange={(e) => onChangeTodosHandler(e)}
             />
             <Selecter />
+            <ClockWrapper>
+              <div className="start">
+                <div className="timeSet">
+                  <InputBox
+                    width={30}
+                    name="start"
+                    maxLength={2}
+                    value={todo.start}
+                    onChange={(e) => onChangeTodosHandler(e)}
+                  />
+                  {/* <span
+                    onClick={(e) => {
+                      e.target.innerText === "PM"
+                        ? (e.target.innerText = "AM")
+                        : (e.target.innerText = "PM");
+                    }}
+                  >
+                    PM
+                  </span> */}
+                </div>
+              </div>
+              <span>~</span>
+              <div className="end">
+                <div>
+                  <InputBox
+                    width={30}
+                    name="end"
+                    maxLength={2}
+                    value={todo.end}
+                    onChange={(e) => onChangeTodosHandler(e)}
+                  />
+                  {/* <span
+                    onClick={(e) => {
+                      e.target.innerText === "PM"
+                        ? (e.target.innerText = "AM")
+                        : (e.target.innerText = "PM");
+                    }}
+                  >
+                    PM
+                  </span> */}
+                </div>
+              </div>
+            </ClockWrapper>
             <Button
               className="submitBtn"
               width={70}
@@ -95,13 +160,20 @@ const ModalContent = styled.div`
     height: 310px;
     transition: 0.3s ease-in;
   }
+  &:not(:hover) {
+    transform: translate(-50%, -50%) rotate(1deg);
+    width: 300px;
+    height: 300px;
+    transition: 0.3s ease-in;
+  }
+
   .circle {
     position: absolute;
     left: 28%;
     top: 9%;
     width: 20px;
     height: 20px;
-    background-color: ${({ circlecolor }) => circlecolor};
+    background-color: ${(props) => props.$circleColor};
     border-radius: 100%;
     border: 1px solid black;
   }
@@ -123,7 +195,7 @@ const ModalContent = styled.div`
   }
   .date {
     position: absolute;
-    left: 70%;
+    left: 65%;
     top: 0;
   }
   > input {
@@ -148,4 +220,41 @@ const ModalBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+`;
+
+const ClockWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  .start {
+    display: flex;
+    flex-direction: row;
+  }
+  .end {
+    display: flex;
+    flex-direction: row;
+  }
+  & > * span {
+    &:hover {
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+    }
+    cursor: pointer;
+  }
+`;
+
+const InputBox = styled.input`
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  transition: border-bottom-width 0.3s ease-in;
+  padding-left: 5%;
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
+
+  &:focus {
+    border-bottom: 2px solid black;
+  }
 `;

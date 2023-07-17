@@ -19,5 +19,14 @@ const addTodo = async (newTodo) => {
   return response.data
 }
 
+// const getTodo = async (id) => {
+//   const response = await instance.get("/todos", {
+//     params: {
+//       id,
+//     }
+//   })
+//   return response.data
+// } 
 
-export {getTodos, addTodo}
+
+export {getTodos, addTodo}   //, getTodo}

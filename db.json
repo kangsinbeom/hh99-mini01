@@ -69,15 +69,6 @@
       "time": "9AM - 12AM",
       "date": "2023-07-05",
       "circleColor": "red"
-    },
-    {
-      "newTodo": {
-        "eventName": "리액트 공부하기",
-        "time": "10PM - 12PM",
-        "date": "",
-        "circleColor": "red"
-      },
-      "id": 11
     }
   ]
 }

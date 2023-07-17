@@ -31,6 +31,7 @@ const List = ({ month }) => {
         />
       ))}
       {console.log({ month })}
+
     </ListWrapper>
   );
 };
