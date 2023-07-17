@@ -36,7 +36,7 @@ const Modal = () => {
     setTodo(newColor);
   }, [circleColor]);
   const dispatch = useDispatch();
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(addTodo, {
     onSuccess: () => {
