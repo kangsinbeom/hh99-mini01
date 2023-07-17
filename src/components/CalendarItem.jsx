@@ -2,35 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { toogleModal } from "../redux/modules/modal";
-import {
-  format,
-  addDays,
-  startOfWeek,
-  endOfWeek,
-  startOfMonth,
-  endOfMonth,
-  isSameMonth,
-  isSameDay,
-  parse,
-  daysInWeek,
-} from "date-fns";
+import { toogleModal, setModalId } from "../redux/modules/modal";
 
 const CalendarItem = () => {
   const calendars = useSelector((state) => state.calendar);
   const dispatch = useDispatch();
   const { modalChecked } = useSelector((state) => state.modal);
-  const onDateClick = () => {
+  const onDateClick = (id) => {
     dispatch(toogleModal());
+    dispatch(setModalId(id));
   };
 
   return (
     <CalendarBody>
       {calendars.map((days, inx) => (
         <CalendarRow key={inx}>
-          {days.map((date, idx) => (
+          {days.map((date) => (
             <CalendarCell
-              onClick={onDateClick}
+              onClick={() => onDateClick(date.id)}
               key={date.id}
               value={date.date}
               $isSun={date.isSun ? "true" : ""}
@@ -65,8 +54,11 @@ const CalendarCell = styled.div`
   height: 56px;
   font-size: 24px;
   filter: blur(0.5px);
-  transform: skewX(-5deg);
+
   /* border: 1px solid #ccc; */
+  &:hover {
+    background-color: gray;
+  }
   color: ${(props) =>
     props.$isSun
       ? `rgba(255, 0, 0, ${props.$isSameMonth ? 1 : 0.3})`

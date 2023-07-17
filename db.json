@@ -2,63 +2,73 @@
   "todos": [
     {
       "id": 1,
-      "eventname": "리액트 공부하기",
+      "eventName": "리액트 공부하기",
       "time": "10PM - 12PM",
-      "date": "12월 25일"
+      "date": "2023-07-05",
+      "circleColor": "red"
     },
     {
       "id": 2,
-      "eventname": "타입스크립트 공부하기",
+      "eventName": "타입스크립트 공부하기",
       "time": "3PM - 5PM",
-      "date": "12월 25일"
+      "date": "2023-07-05",
+      "circleColor": "red"
     },
     {
       "id": 3,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-07-05",
+      "circleColor": "red"
     },
     {
       "id": 4,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-08-05",
+      "circleColor": "red"
     },
     {
       "id": 5,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-08-05",
+      "circleColor": "red"
     },
     {
       "id": 6,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-09-05",
+      "circleColor": "red"
     },
     {
       "id": 7,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-09-05",
+      "circleColor": "red"
     },
     {
       "id": 8,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-09-05",
+      "circleColor": "red"
     },
     {
       "id": 9,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-08-05",
+      "circleColor": "red"
     },
     {
       "id": 10,
-      "eventname": "무엇이든지 공부하기",
+      "eventName": "무엇이든지 공부하기",
       "time": "9AM - 12AM",
-      "date": "12월 25일"
+      "date": "2023-07-05",
+      "circleColor": "red"
     }
   ]
 }
