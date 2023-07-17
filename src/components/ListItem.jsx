@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useQuery } from "react-query";
 import { getTodos } from "../apis/api";
 
-const ListItem = () => {
+const ListItem = ({ time, eventName }) => {
   const { isLoading, isError, data, error } = useQuery("todos", getTodos);
 
   if (isLoading) {
@@ -13,16 +13,10 @@ const ListItem = () => {
     <p>{error}</p>;
   }
   return (
-    <>
-      {data?.map((item) => {
-        return (
-          <ListItmeBox key={item.id}>
-            <div>{item.time}</div>
-            <div>{item.eventname}</div>
-          </ListItmeBox>
-        );
-      })}
-    </>
+    <ListItmeBox>
+      <div>{time}</div>
+      <div>{eventName}</div>
+    </ListItmeBox>
   );
 };
 

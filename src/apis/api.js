@@ -14,9 +14,8 @@ const getTodos = async () => {
   return response.data
 }
 
-
 const addTodo = async (newTodo) => {
-  const response = await instance.get("/todos", newTodo)
+  const response = await instance.post("/todos", newTodo)
   return response.data
 }
 
