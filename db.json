@@ -69,6 +69,52 @@
       "time": "9AM - 12AM",
       "date": "2023-07-05",
       "circleColor": "red"
+    },
+    {
+      "eventName": "리액트 공부하기",
+      "time": "10PM - 12PM",
+      "date": "2023-07-01",
+      "circleColor": "yellow",
+      "id": 11
+    },
+    {
+      "eventName": "리액트 공부하기",
+      "time": "10PM - 12PM",
+      "date": "2023-07-27",
+      "circleColor": "blue",
+      "id": 12
+    },
+    {
+      "eventName": "",
+      "start": "",
+      "end": "",
+      "date": "",
+      "circleColor": "",
+      "id": 13
+    },
+    {
+      "eventName": "제발 좀 되라",
+      "start": "12",
+      "end": "19",
+      "date": "2023-07-12",
+      "circleColor": "",
+      "id": 14
+    },
+    {
+      "eventName": "",
+      "start": "",
+      "end": "",
+      "date": "2023-07-20",
+      "circleColor": "",
+      "id": 15
+    },
+    {
+      "eventName": "",
+      "start": "",
+      "end": "",
+      "date": "2023-07-28",
+      "circleColor": "",
+      "id": 16
     }
   ]
 }

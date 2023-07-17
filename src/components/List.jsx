@@ -18,7 +18,12 @@ const List = ({ month }) => {
     <ListWrapper>
       {data?.map((item) => {
         return (
-          <ListItem key={item.id} time={item.time} eventName={item.eventName} />
+          <ListItem
+            key={item.id}
+            start={item.start}
+            end={item.end}
+            eventName={item.eventName}
+          />
         );
       })}
     </ListWrapper>

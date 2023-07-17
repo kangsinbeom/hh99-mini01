@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const ListItem = ({ time, eventName }) => {
+const ListItem = ({ start, end, eventName }) => {
   return (
     <ListItmeBox>
-      <div>{time}</div>
+      <div>
+        {start} - {end}
+      </div>
       <div>{eventName}</div>
     </ListItmeBox>
   );

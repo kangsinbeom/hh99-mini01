@@ -1,5 +1,5 @@
 import styled from "styled-components";
-const Input = ({ value, children, width, height, onChange }) => {
+const Input = ({ value, onChange, children, width, height }) => {
   return (
     <WrapperInput
       width={width}
