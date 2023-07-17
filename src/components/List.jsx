@@ -14,18 +14,24 @@ const List = ({ month }) => {
   if (isError) {
     <p>{error}</p>;
   }
+
+  const filteredData = data?.filter((item) => {
+    const itemMonth = item.date?.slice(5, 7);
+    return itemMonth === month.toString();
+  });
+
   return (
     <ListWrapper>
-      {data?.map((item) => {
-        return (
-          <ListItem
-            key={item.id}
-            start={item.start}
-            end={item.end}
-            eventName={item.eventName}
-          />
-        );
-      })}
+      {filteredData?.map((item) => (
+        <ListItem
+          key={item.id}
+          time={item.time}
+          eventName={item.eventName}
+          date={item.date}
+        />
+      ))}
+      {console.log({ month })}
+
     </ListWrapper>
   );
 };
@@ -33,9 +39,7 @@ const List = ({ month }) => {
 export default List;
 
 const ListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
   /* border: 1px solid black; */
   width: 20%;
   margin-top: 60px;
