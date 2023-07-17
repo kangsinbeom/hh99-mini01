@@ -6,11 +6,10 @@ import useCalendar from "../hooks/useCalendar";
 import img from "../style/img/calender.png";
 import Rarrow from "../style/img/arrowright.png";
 import Larrow from "../style/img/arrowleft.png";
-
+import List from "./List";
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const dates = ["Sun", "Mon", "Thu", "Wed", "Thrs", "Fri", "Sat"];
-
+  const month = format(currentMonth, "M");
   useCalendar(currentMonth);
 
   const prevMonth = () => {
@@ -24,27 +23,29 @@ const Calendar = () => {
   // onClick시 day 정보 redux로 전달 및 modal open/close
 
   return (
-    <CalendarWrapper>
-      <Header>
-        <div>
-          <CalendarHeader>
-            <span className="text month"> {format(currentMonth, "yyyy")} </span>
-            {format(currentMonth, "M")}월
-          </CalendarHeader>
-        </div>
-        <div>
-          <HeaderArrow src={Larrow} onClick={prevMonth}></HeaderArrow>
-          <HeaderArrow src={Rarrow} onClick={nextMonth}></HeaderArrow>
-        </div>
-      </Header>
-      <Days>
-        {/* {dates.map((date, idx) => (
+    <>
+      <CalendarWrapper>
+        <Header>
+          <div>
+            <CalendarHeader>
+              {format(currentMonth, "yyyy")} {month}월
+            </CalendarHeader>
+          </div>
+          <div>
+            <HeaderArrow src={Larrow} onClick={prevMonth}></HeaderArrow>
+            <HeaderArrow src={Rarrow} onClick={nextMonth}></HeaderArrow>
+          </div>
+        </Header>
+        <Days>
+          {/* {dates.map((date, idx) => (
           <div key={idx}>{date}</div>
         ))} */}
-      </Days>
-      <CalendarItem></CalendarItem>
-      <CarendarImg src={img}></CarendarImg>
-    </CalendarWrapper>
+        </Days>
+        <CalendarItem></CalendarItem>
+        <CarendarImg src={img}></CarendarImg>
+      </CalendarWrapper>
+      <List month />
+    </>
   );
 };
 
@@ -74,7 +75,7 @@ const Header = styled.div`
   align-items: center;
 `;
 
-const CalendarHeader = styled.span`
+const CalendarHeader = styled.h2`
   filter: blur(0.3px);
   margin-left: 10px;
   font-size: 20px;

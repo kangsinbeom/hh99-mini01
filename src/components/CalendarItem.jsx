@@ -54,8 +54,11 @@ const CalendarCell = styled.div`
   height: 56px;
   font-size: 24px;
   filter: blur(0.5px);
-  transform: skewX(-5deg);
+
   /* border: 1px solid #ccc; */
+  &:hover {
+    background-color: gray;
+  }
   color: ${(props) =>
     props.$isSun
       ? `rgba(255, 0, 0, ${props.$isSameMonth ? 1 : 0.3})`

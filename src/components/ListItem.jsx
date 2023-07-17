@@ -1,17 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { useQuery } from "react-query";
-import { getTodos } from "../apis/api";
 
 const ListItem = ({ time, eventName }) => {
-  const { isLoading, isError, data, error } = useQuery("todos", getTodos);
-
-  if (isLoading) {
-    <p>Loading</p>;
-  }
-  if (isError) {
-    <p>{error}</p>;
-  }
   return (
     <ListItmeBox>
       <div>{time}</div>

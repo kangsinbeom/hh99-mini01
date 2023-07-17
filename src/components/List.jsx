@@ -4,7 +4,8 @@ import ListItem from "./ListItem";
 import { useQuery } from "react-query";
 import { getTodos } from "../apis/api";
 
-const List = () => {
+const List = ({ month }) => {
+  // api요청시 params에 month 넣어서 그것에 해당하는 값만 가져오기
   const { isLoading, isError, data, error } = useQuery("todos", getTodos);
 
   if (isLoading) {
