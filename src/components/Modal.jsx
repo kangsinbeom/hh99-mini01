@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "./common/Button";
 import { toogleModal } from "../redux/modules/modal";
 import Selecter from "./common/Selector";
-import { QueryClient, useMutation } from "react-query";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 import { addTodo } from "../apis/api";
 import { useEffect, useState } from "react";
 
@@ -11,16 +11,14 @@ const Modal = () => {
   const { modalChecked, date, circleColor } = useSelector(
     (state) => state.modal
   );
-  const [color, setColor] = useState("");
 
-  const initialState = {
+  const [todo, setTodo] = useState({
     eventName: "",
     start: "",
     end: "",
     date,
-    circleColor: color,
-  };
-  const [todo, setTodo] = useState(initialState);
+    circleColor,
+  });
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
     let newValue = value;
@@ -31,12 +29,16 @@ const Modal = () => {
     };
     setTodo(newTodo);
   };
-  console.log(todo);
+
   useEffect(() => {
-    setColor(circleColor);
+    let newColor = {
+      ...todo,
+      circleColor,
+    };
+    setTodo(newColor);
   }, [circleColor]);
   const dispatch = useDispatch();
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(addTodo, {
     onSuccess: () => {
@@ -51,7 +53,13 @@ const Modal = () => {
   const onClickSubmitHandler = () => {
     mutation.mutate(todo);
     dispatch(toogleModal());
-    setTodo(initialState);
+    setTodo({
+      eventName: "",
+      start: "",
+      end: "",
+      date,
+      circleColor: "red",
+    });
   };
 
   return (
