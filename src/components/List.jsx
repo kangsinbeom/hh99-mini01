@@ -1,25 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
-import { useQuery } from "react-query";
-import { getTodos } from "../apis/api";
 
-const List = ({ month }) => {
-  // api요청시 params에 month 넣어서 그것에 해당하는 값만 가져오기
-  const { isLoading, isError, data, error } = useQuery("todos", getTodos);
-
-  if (isLoading) {
-    <p>Loading</p>;
-  }
-  if (isError) {
-    <p>{error}</p>;
-  }
-
-  const filteredData = data?.filter((item) => {
-    const itemMonth = item.date?.slice(5, 7);
-    return itemMonth === month.toString();
-  });
-
+const List = ({ filteredData }) => {
   return (
     <ListWrapper>
       {filteredData?.map((item) => (
@@ -27,11 +10,11 @@ const List = ({ month }) => {
           key={item.id}
           time={item.time}
           eventName={item.eventName}
-          date={item.date}
+          start={item.start}
+          end={item.end}
+          circleColor={item.circleColor}
         />
       ))}
-      {console.log({ month })}
-
     </ListWrapper>
   );
 };

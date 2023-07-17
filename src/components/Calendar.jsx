@@ -6,7 +6,9 @@ import useCalendar from "../hooks/useCalendar";
 import img from "../style/img/calender.png";
 import Rarrow from "../style/img/arrowright.png";
 import Larrow from "../style/img/arrowleft.png";
-import List from "./List";
+import ListContainor from "../containor/ListContainor";
+import CalendarItemContainor from "../containor/CalendarItemContainor";
+
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const month = format(currentMonth, "M");
@@ -41,10 +43,10 @@ const Calendar = () => {
           <div key={idx}>{date}</div>
         ))} */}
         </Days>
-        <CalendarItem></CalendarItem>
+        <CalendarItemContainor />
         <CarendarImg src={img}></CarendarImg>
       </CalendarWrapper>
-      <List month />
+      <ListContainor month={month} />
     </>
   );
 };

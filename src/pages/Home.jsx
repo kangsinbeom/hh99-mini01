@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <Div>
       <Calendar></Calendar>
-      {/* <List></List> */}
     </Div>
   );
 };

@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-
-const ListItem = ({ start, end, eventName }) => {
+const ListItem = ({ start, end, eventName, circleColor }) => {
   return (
-    <ListItmeBox>
-      <div>
-        {start} - {end}
-      </div>
+    <ListItmeBox color={circleColor}>
       <div>{eventName}</div>
+      <div>
+        {start}시 - {end}시
+      </div>
     </ListItmeBox>
   );
 };
@@ -23,10 +22,9 @@ const ListItmeBox = styled.div`
   height: 50px;
   margin: 0 auto;
   text-align: center;
-  border-radius: 5px;
   font-size: 20px;
+  border-left: 5px solid ${({ color }) => color};
   filter: blur(0.5px);
-  transform: skewX(-5deg);
   transition: font-size 0.2s ease-in-out, background-color 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
