@@ -11,16 +11,13 @@ const Modal = () => {
   const { modalChecked, date, circleColor } = useSelector(
     (state) => state.modal
   );
-  const [color, setColor] = useState("");
-
-  const initialState = {
+  const [todo, setTodo] = useState({
     eventName: "",
     start: "",
     end: "",
     date,
-    circleColor: color,
-  };
-  const [todo, setTodo] = useState(initialState);
+    circleColor: "",
+  });
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
     let newValue = value;
@@ -31,9 +28,12 @@ const Modal = () => {
     };
     setTodo(newTodo);
   };
-  console.log(todo);
   useEffect(() => {
-    setColor(circleColor);
+    let newColor = {
+      ...todo,
+      circleColor,
+    };
+    setTodo(newColor);
   }, [circleColor]);
   const dispatch = useDispatch();
   const queryClient = new QueryClient();
@@ -51,7 +51,13 @@ const Modal = () => {
   const onClickSubmitHandler = () => {
     mutation.mutate(todo);
     dispatch(toogleModal());
-    setTodo(initialState);
+    setTodo({
+      eventName: "",
+      start: "",
+      end: "",
+      date,
+      circleColor: "red",
+    });
   };
 
   return (
@@ -60,7 +66,6 @@ const Modal = () => {
         <>
           <ModalContent $circleColor={circleColor}>
             <span>할 일</span>
-            {/* css가 undefined가 뜨는데 왜일까? */}
             <div className="circle" />
             <p className="date">날짜 : {date}</p>
             <p className="count">{todo.eventName.length}/20</p>

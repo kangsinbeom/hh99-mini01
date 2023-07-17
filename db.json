@@ -1,120 +1,20 @@
 {
   "todos": [
     {
-      "id": 1,
-      "eventName": "리액트 공부하기",
-      "time": "10PM - 12PM",
+      "eventName": "리스트를 고쳐보자",
+      "start": "12",
+      "end": "19",
       "date": "2023-07-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 2,
-      "eventName": "타입스크립트 공부하기",
-      "time": "3PM - 5PM",
-      "date": "2023-07-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 3,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-07-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 4,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-08-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 5,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-08-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 6,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-09-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 7,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-09-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 8,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-09-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 9,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-08-05",
-      "circleColor": "red"
-    },
-    {
-      "id": 10,
-      "eventName": "무엇이든지 공부하기",
-      "time": "9AM - 12AM",
-      "date": "2023-07-05",
-      "circleColor": "red"
-    },
-    {
-      "eventName": "리액트 공부하기",
-      "time": "10PM - 12PM",
-      "date": "2023-07-01",
-      "circleColor": "yellow",
-      "id": 11
-    },
-    {
-      "eventName": "리액트 공부하기",
-      "time": "10PM - 12PM",
-      "date": "2023-07-27",
-      "circleColor": "blue",
-      "id": 12
-    },
-    {
-      "eventName": "",
-      "start": "",
-      "end": "",
-      "date": "",
-      "circleColor": "",
-      "id": 13
+      "circleColor": "red",
+      "id": 1
     },
     {
       "eventName": "제발 좀 되라",
       "start": "12",
-      "end": "19",
-      "date": "2023-07-12",
-      "circleColor": "",
-      "id": 14
-    },
-    {
-      "eventName": "",
-      "start": "",
-      "end": "",
-      "date": "2023-07-20",
-      "circleColor": "",
-      "id": 15
-    },
-    {
-      "eventName": "",
-      "start": "",
-      "end": "",
-      "date": "2023-07-28",
-      "circleColor": "",
-      "id": 16
+      "end": "13",
+      "date": "2023-07-07",
+      "circleColor": "violet",
+      "id": 2
     }
   ]
 }
