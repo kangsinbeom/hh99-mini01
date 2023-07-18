@@ -41,12 +41,44 @@
       "id": 5
     },
     {
-      "eventName": "343",
+      "eventName": "6월동안 놀기",
       "start": "12",
       "end": "23",
-      "date": "2023-07-12",
+      "date": "2023-06-11",
       "circleColor": "red",
+      "id": 6
+    },
+    {
+      "eventName": "7월 동안 놀기",
+      "start": "12",
+      "end": "23",
+      "date": "2023-07-13",
+      "circleColor": "blue",
       "id": 7
+    },
+    {
+      "eventName": "7월 공부 열심히",
+      "start": "4",
+      "end": "23",
+      "date": "2023-07-26",
+      "circleColor": "blue",
+      "id": 10
+    },
+    {
+      "eventName": "7월 동안 공부하기",
+      "start": "12",
+      "end": "23",
+      "date": "2023-07-26",
+      "circleColor": "red",
+      "id": 11
+    },
+    {
+      "eventName": "7월 동안 공부하기",
+      "start": "11",
+      "end": "22",
+      "date": "2023-07-20",
+      "circleColor": "red",
+      "id": 12
     }
   ]
 }

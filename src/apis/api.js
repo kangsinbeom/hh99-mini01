@@ -8,7 +8,7 @@ const instance = axios.create({
 });
 
 const getTodos = async () => {
-  const response = await instance.get("/todos", {
+  const response = await instance.get("/api/memo", {
     params: {},
   });
   return response.data;
@@ -24,17 +24,18 @@ const deleteTodo = async (id) => {
   return response.data;
 };
 
+const updateTodo = async (id, updatedTodo) => {
+  const response = await instance.put(`/api/memo/${id}`, updatedTodo);
+  return response.data;
+};
 
 const getTodo = async (id) => {
-  const response = await instance.get("/api/memo")
-  const todo = response.data.filter(todo => todo.id === parseInt(id));
-  return todo
-} 
+  const response = await instance.get("/api/memo");
+  const todo = response.data.filter((todo) => todo.id === parseInt(id));
+  return todo;
+};
 
-
-export {getTodos, addTodo, getTodo, deleteTodo}
-
+export { getTodos, addTodo, getTodo, deleteTodo, updateTodo };
 
 //  get으로 이렇게 받아오는 방식이랑 가져와서 캐쉬 된 데이터를 꺼내쓰는거랑
 // 뭐가 더 효율적인 일인가??
-
