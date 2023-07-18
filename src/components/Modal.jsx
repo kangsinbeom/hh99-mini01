@@ -15,7 +15,7 @@ const Modal = () => {
     start: "",
     end: "",
     date,
-    circleColor,
+    color,
   });
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
@@ -31,10 +31,10 @@ const Modal = () => {
   useEffect(() => {
     let newColor = {
       ...todo,
-      circleColor,
+      color,
     };
     setTodo(newColor);
-  }, [circleColor]);
+  }, [color]);
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
@@ -56,7 +56,7 @@ const Modal = () => {
       start: "",
       end: "",
       date,
-      circleColor: "red",
+      color: "red",
     });
   };
 
@@ -64,7 +64,7 @@ const Modal = () => {
     <>
       {modalChecked && (
         <>
-          <ModalContent $circleColor={circleColor}>
+          <ModalContent $color={color}>
             <span>할 일</span>
             {/* css가 undefined가 뜨는데 왜일까? */}
             <div className="circle" />
@@ -179,7 +179,7 @@ const ModalContent = styled.div`
     top: 9%;
     width: 20px;
     height: 20px;
-    background-color: ${(props) => props.$circleColor};
+    background-color: ${(props) => props.$color};
     border-radius: 100%;
     border: 1px solid black;
   }
