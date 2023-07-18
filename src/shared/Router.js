@@ -10,7 +10,7 @@ const Router = () => {
       <Route path="detail/:id" element={ <Detail />} />
     </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default Router;
