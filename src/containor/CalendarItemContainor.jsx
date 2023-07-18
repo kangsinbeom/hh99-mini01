@@ -4,7 +4,6 @@ import { toogleModal, setModalId } from "../redux/modules/modal";
 
 const CalendarItemContainor = () => {
   const calendars = useSelector((state) => state.calendar);
-
   const dispatch = useDispatch();
   const { modalChecked } = useSelector((state) => state.modal);
   const onDateClick = (id) => {

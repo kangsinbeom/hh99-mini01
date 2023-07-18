@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import CalendarItem from "./CalendarItem";
 import { format, addMonths, subMonths } from "date-fns";
 import useCalendar from "../hooks/useCalendar";
 import img from "../assets/images/calender.png";
 import Rarrow from "../assets/images/arrowright.png";
 import Larrow from "../assets/images/arrowleft.png";
 import ListContainor from "../containor/ListContainor";
+import CalendarItem from "./CalendarItem";
 import CalendarItemContainor from "../containor/CalendarItemContainor";
 
 const Calendar = () => {
@@ -43,6 +43,7 @@ const Calendar = () => {
           <div key={idx}>{date}</div>
         ))} */}
         </Days>
+        {/* <CalendarItem currentMonth={currentMonth} /> */}
         <CalendarItemContainor />
         <CarendarImg src={img}></CarendarImg>
       </CalendarWrapper>
@@ -58,7 +59,7 @@ const CarendarImg = styled.img`
   margin: 25px 30px 0 0;
   width: 664px;
   height: 380px;
-  z-index: -100;
+  z-index: -9999;
 `;
 
 const CalendarWrapper = styled.div`
