@@ -8,12 +8,10 @@ import { addTodo } from "../apis/api";
 import { useEffect, useState } from "react";
 
 const Modal = () => {
-  const { modalChecked, date, circleColor } = useSelector(
-    (state) => state.modal
-  );
+  const { modalChecked, date, color } = useSelector((state) => state.modal);
 
   const [todo, setTodo] = useState({
-    eventName: "",
+    eventname: "",
     start: "",
     end: "",
     date,
@@ -22,7 +20,7 @@ const Modal = () => {
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
     let newValue = value;
-    name !== "eventName" && (newValue = value.replace(/\D/g, ""));
+    name !== "eventname" && (newValue = value.replace(/\D/g, ""));
     const newTodo = {
       ...todo,
       [name]: newValue,
@@ -54,7 +52,7 @@ const Modal = () => {
     mutation.mutate(todo);
     dispatch(toogleModal());
     setTodo({
-      eventName: "",
+      eventname: "",
       start: "",
       end: "",
       date,
@@ -71,13 +69,13 @@ const Modal = () => {
             {/* css가 undefined가 뜨는데 왜일까? */}
             <div className="circle" />
             <p className="date">날짜 : {date}</p>
-            <p className="count">{todo.eventName.length}/20</p>
+            <p className="count">{todo.eventname.length}/20</p>
             <InputBox
               type="text"
               maxLength={19}
               width={220}
-              name="eventName"
-              value={todo.eventName}
+              name="eventname"
+              value={todo.eventname}
               onChange={(e) => onChangeTodosHandler(e)}
             />
             <Selecter />
