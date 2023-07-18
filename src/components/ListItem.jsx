@@ -1,28 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useQuery } from "react-query";
-import { getTodos } from "../apis/api";
+import Button from "../components/common/Button";
 
-const ListItem = () => {
-  const { isLoading, isError, data, error } = useQuery("todos", getTodos);
-
-  if (isLoading) {
-    <p>Loading</p>;
-  }
-  if (isError) {
-    <p>{error}</p>;
-  }
+const ListItem = ({ start, end, eventName, circleColor, onClick }) => {
   return (
-    <>
-      {data?.map((item) => {
-        return (
-          <ListItmeBox key={item.id}>
-            <div>{item.time}</div>
-            <div>{item.eventname}</div>
-          </ListItmeBox>
-        );
-      })}
-    </>
+    <ListItmeBox color={circleColor} onClick={onClick}>
+      <div>{eventName}</div>
+      <div>
+        {start}시 - {end}시
+      </div>
+    </ListItmeBox>
   );
 };
 
@@ -36,12 +23,13 @@ const ListItmeBox = styled.div`
   height: 50px;
   margin: 0 auto;
   text-align: center;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: font-size 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  font-size: 20px;
+  border-left: 5px solid ${({ color }) => color};
+  filter: blur(0.5px);
+  transition: font-size 0.2s ease-in-out, background-color 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 23px;
     background-color: #dad8d8;
   }
 `;
