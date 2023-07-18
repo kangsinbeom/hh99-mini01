@@ -1,5 +1,5 @@
 import React from "react";
-
+import styled from "styled-components";
 const Details = ({
   info,
   handleDelete,
@@ -14,7 +14,7 @@ const Details = ({
   // console.log(eventName);
 
   return (
-    <div>
+    <DetailWarpper>
       <h1>Detail Page</h1>
       <div>
         <p>Event Name: {eventName}</p>
@@ -57,7 +57,7 @@ const Details = ({
       <button onClick={onClickUpdateHandler}>수정</button>
       &nbsp;
       <button onClick={handleDelete}>삭제</button>
-    </div>
+    </DetailWarpper>
   );
 };
 
