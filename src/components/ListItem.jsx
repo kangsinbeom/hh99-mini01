@@ -8,7 +8,7 @@ const ListItem = ({ start, end, eventName, circleColor, todoId, onDelete }) => {
     onDelete(todoId); // 삭제 기능을 처리하는 함수 호출
   };
   return (
-    <ListItmeBox color={circleColor} onClick={onClick}>
+    <ListItmeBox color={circleColor}>
       <div>{eventName}</div>
       <div>
         {start}시 - {end}시
