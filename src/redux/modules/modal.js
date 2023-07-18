@@ -17,9 +17,7 @@ const modalSlice = createSlice({
       state.modalChecked = !state.modalChecked;
     },
     changeModalColor : (state, action) =>{
-      console.log("action.payload", action.payload);
       state.circleColor = action.payload
-      console.log("state.circleColor", state.circleColor);
     },
   }
 })

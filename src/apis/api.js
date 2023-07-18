@@ -19,14 +19,15 @@ const addTodo = async (newTodo) => {
   return response.data
 }
 
-// const getTodo = async (id) => {
-//   const response = await instance.get("/todos", {
-//     params: {
-//       id,
-//     }
-//   })
-//   return response.data
-// } 
+const getTodo = async (id) => {
+  const response = await instance.get("/todos")
+  const todo = response.data.filter(todo => todo.id === parseInt(id));
+  return todo
+} 
 
 
-export {getTodos, addTodo}   //, getTodo}
+export {getTodos, addTodo, getTodo}
+
+
+//  get으로 이렇게 받아오는 방식이랑 가져와서 캐쉬 된 데이터를 꺼내쓰는거랑
+// 뭐가 더 효율적인 일인가??

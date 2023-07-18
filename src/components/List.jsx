@@ -1,8 +1,14 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import { useNavigate } from "react-router-dom";
 
 const List = ({ filteredData }) => {
+  const navigate = useNavigate();
+  const onClickNavHandler = (id) => {
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <ListWrapper>
       {filteredData?.map((item) => (
@@ -13,7 +19,8 @@ const List = ({ filteredData }) => {
           start={item.start}
           end={item.end}
           circleColor={item.circleColor}
-        />
+          onClick={() => onClickNavHandler(item.id)}
+        ></ListItem>
       ))}
     </ListWrapper>
   );

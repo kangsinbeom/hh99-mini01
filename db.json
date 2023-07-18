@@ -71,6 +71,14 @@
       "date": "2023-07-21",
       "circleColor": "red",
       "id": 9
+    },
+    {
+      "eventName": "",
+      "start": "",
+      "end": "",
+      "date": "2023-07-26",
+      "circleColor": "red",
+      "id": 10
     }
   ]
 }
