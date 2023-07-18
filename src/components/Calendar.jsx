@@ -3,9 +3,9 @@ import styled from "styled-components";
 import CalendarItem from "./CalendarItem";
 import { format, addMonths, subMonths } from "date-fns";
 import useCalendar from "../hooks/useCalendar";
-import img from "../style/img/calender.png";
-import Rarrow from "../style/img/arrowright.png";
-import Larrow from "../style/img/arrowleft.png";
+import img from "../assets/images/calender.png";
+import Rarrow from "../assets/images/arrowright.png";
+import Larrow from "../assets/images/arrowleft.png";
 import ListContainor from "../containor/ListContainor";
 import CalendarItemContainor from "../containor/CalendarItemContainor";
 
