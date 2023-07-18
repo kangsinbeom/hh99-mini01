@@ -26,18 +26,18 @@ function Detailcontainor() {
     navigate("/"); // 업데이트 후 메인 페이지로 이동
   };
 
-  const [updatedEventName, setUpdatedEventName] = useState("");
+  const [updatedeventname, setUpdatedeventname] = useState("");
   const [updatedStart, setUpdatedStart] = useState("");
   const [updatedEnd, setUpdatedEnd] = useState("");
-  const [updatedCircleColor, setUpdatedCircleColor] = useState("");
+  const [updatedcolor, setUpdatedcolor] = useState("");
 
   const onInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     switch (name) {
-      case "updatedEventName":
-        setUpdatedEventName(value);
+      case "updatedeventname":
+        setUpdatedeventname(value);
         break;
       case "updatedStart":
         setUpdatedStart(value);
@@ -45,8 +45,8 @@ function Detailcontainor() {
       case "updatedEnd":
         setUpdatedEnd(value);
         break;
-      case "updatedCircleColor":
-        setUpdatedCircleColor(value);
+      case "updatedcolor":
+        setUpdatedcolor(value);
         break;
       default:
         break;
@@ -56,10 +56,10 @@ function Detailcontainor() {
   const onClickUpdateHandler = () => {
     const updatedInfo = {
       ...info,
-      eventName: updatedEventName,
+      eventname: updatedeventname,
       start: updatedStart,
       end: updatedEnd,
-      circleColor: updatedCircleColor,
+      color: updatedcolor,
     };
     handleUpdate(updatedInfo);
   };
@@ -80,10 +80,10 @@ function Detailcontainor() {
     <Details
       info={info}
       handleDelete={handleDelete}
-      updatedEventName={updatedEventName}
+      updatedeventname={updatedeventname}
       updatedStart={updatedStart}
       updatedEnd={updatedEnd}
-      updatedCircleColor={updatedCircleColor}
+      updatedcolor={updatedcolor}
       onInputChange={onInputChange}
       onClickUpdateHandler={onClickUpdateHandler}
     ></Details>
