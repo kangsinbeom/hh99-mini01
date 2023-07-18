@@ -1,8 +1,25 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import { useMutation, useQueryClient } from "react-query";
+import { deleteTodo } from "../apis/api";
 
 const List = ({ filteredData }) => {
+  const queryClient = useQueryClient();
+  // delete함수 실행하고 성공하면 onSuccess하는 것
+  const mutation = useMutation(deleteTodo, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos");
+    },
+  });
+  // id 받아서 삭제작업하는 것
+  const handleDelete = useCallback(
+    (id) => {
+      mutation.mutate(id);
+    },
+    [mutation]
+  );
+
   return (
     <ListWrapper>
       {filteredData?.map((item) => (
@@ -13,6 +30,8 @@ const List = ({ filteredData }) => {
           start={item.start}
           end={item.end}
           circleColor={item.circleColor}
+          todoId={item.id}
+          onDelete={handleDelete}
         />
       ))}
     </ListWrapper>

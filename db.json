@@ -41,36 +41,12 @@
       "id": 5
     },
     {
-      "eventName": "6월 동안 공부하기",
+      "eventName": "343",
       "start": "12",
       "end": "23",
-      "date": "2023-06-14",
-      "circleColor": "red",
-      "id": 6
-    },
-    {
-      "eventName": "7월 동안 공부하기",
-      "start": "1",
-      "end": "23",
-      "date": "2023-07-21",
+      "date": "2023-07-12",
       "circleColor": "red",
       "id": 7
-    },
-    {
-      "eventName": "123123",
-      "start": "12",
-      "end": "12",
-      "date": "2023-07-13",
-      "circleColor": "yellow",
-      "id": 8
-    },
-    {
-      "eventName": "",
-      "start": "",
-      "end": "",
-      "date": "2023-07-21",
-      "circleColor": "red",
-      "id": 9
     }
   ]
 }

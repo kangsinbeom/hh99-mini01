@@ -1,23 +1,28 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const instance = axios.create({
-    baseURL: BASE_URL,
-    headers: {}
-  })
+  baseURL: BASE_URL,
+  headers: {},
+});
 
 const getTodos = async () => {
   const response = await instance.get("/todos", {
-    params: {}
-  })
-  return response.data
-}
+    params: {},
+  });
+  return response.data;
+};
 
 const addTodo = async (newTodo) => {
-  const response = await instance.post("/todos", newTodo)
-  return response.data
-}
+  const response = await instance.post("/todos", newTodo);
+  return response.data;
+};
+
+const deleteTodo = async (id) => {
+  const response = await instance.delete(`/todos/${id}`);
+  return response.data;
+};
 
 // const getTodo = async (id) => {
 //   const response = await instance.get("/todos", {
@@ -26,7 +31,6 @@ const addTodo = async (newTodo) => {
 //     }
 //   })
 //   return response.data
-// } 
+// }
 
-
-export {getTodos, addTodo}   //, getTodo}
+export { getTodos, addTodo, deleteTodo }; //, getTodo}

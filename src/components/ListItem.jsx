@@ -1,13 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "../components/common/Button";
 
-const ListItem = ({ start, end, eventName, circleColor }) => {
+const ListItem = ({ start, end, eventName, circleColor, todoId, onDelete }) => {
+  // 삭제 버튼 클릭 시 핸들러
+  const handleDelete = async () => {
+    onDelete(todoId); // 삭제 기능을 처리하는 함수 호출
+  };
+
   return (
     <ListItmeBox color={circleColor}>
       <div>{eventName}</div>
       <div>
         {start}시 - {end}시
       </div>
+      <Button onClick={handleDelete}>삭제</Button>
     </ListItmeBox>
   );
 };
