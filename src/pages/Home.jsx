@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import CalendarContainor from "../containor/CalendarContainor";
-
+import Calendar from "../";
 const Home = () => {
   return (
     <Div>
