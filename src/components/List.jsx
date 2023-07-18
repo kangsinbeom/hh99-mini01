@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
+import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 import { deleteTodo } from "../apis/api";
 
@@ -18,7 +19,11 @@ const List = ({ filteredData }) => {
       mutation.mutate(id);
     },
     [mutation]
-  );
+const navigate = useNavigate();
+  const onClickNavHandler = (id) => {
+    navigate(`/detail/${id}`);
+  };
+
 
   return (
     <ListWrapper>
@@ -30,9 +35,14 @@ const List = ({ filteredData }) => {
           start={item.start}
           end={item.end}
           circleColor={item.circleColor}
+
           todoId={item.id}
           onDelete={handleDelete}
         />
+
+          onClick={() => onClickNavHandler(item.id)}
+        ></ListItem>
+
       ))}
     </ListWrapper>
   );

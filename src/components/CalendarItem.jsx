@@ -6,10 +6,9 @@ import { useEffect } from "react";
 const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData("todos");
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   return (
     <CalendarBody>
