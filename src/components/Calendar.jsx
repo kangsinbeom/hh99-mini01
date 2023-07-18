@@ -1,6 +1,8 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import CalendarItem from "./CalendarItem";
-import { format } from "date-fns";
+import { format, addMonths, subMonths } from "date-fns";
+import useCalendar from "../hooks/useCalendar";
 import img from "../style/img/calender.png";
 import Rarrow from "../style/img/arrowright.png";
 import Larrow from "../style/img/arrowleft.png";
@@ -103,12 +105,4 @@ const Days = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-`;
-
-const CalendarBody = styled.div`
-  /* border: 1px solid black; */
-`;
-
-const CalendarRow = styled.div`
-  display: flex;
 `;

@@ -11,6 +11,7 @@ const Modal = () => {
   const { modalChecked, date, circleColor } = useSelector(
     (state) => state.modal
   );
+
   const [todo, setTodo] = useState({
     eventName: "",
     start: "",
@@ -28,6 +29,7 @@ const Modal = () => {
     };
     setTodo(newTodo);
   };
+
   useEffect(() => {
     let newColor = {
       ...todo,
@@ -66,6 +68,7 @@ const Modal = () => {
         <>
           <ModalContent $circleColor={circleColor}>
             <span>할 일</span>
+            {/* css가 undefined가 뜨는데 왜일까? */}
             <div className="circle" />
             <p className="date">날짜 : {date}</p>
             <p className="count">{todo.eventName.length}/20</p>

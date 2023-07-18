@@ -43,6 +43,14 @@ const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
 
 export default CalendarItem;
 
+const CalendarBody = styled.div`
+  /* border: 1px solid black; */
+`;
+
+const CalendarRow = styled.div`
+  display: flex;
+`;
+
 const CalendarCell = styled.div`
   display: flex;
   justify-content: flex-start;
