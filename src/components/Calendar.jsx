@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { format, addMonths, subMonths } from "date-fns";
 import useCalendar from "../hooks/useCalendar";
@@ -6,7 +6,6 @@ import img from "../assets/images/calender.png";
 import Rarrow from "../assets/images/arrowright.png";
 import Larrow from "../assets/images/arrowleft.png";
 import ListContainor from "../containor/ListContainor";
-import CalendarItem from "./CalendarItem";
 import CalendarItemContainor from "../containor/CalendarItemContainor";
 
 const Calendar = () => {
