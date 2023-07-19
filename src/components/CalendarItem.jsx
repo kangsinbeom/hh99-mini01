@@ -28,6 +28,7 @@ const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
                 $isSat={date.isSat ? "true" : ""}
                 $isSameMonth={date.isSameMonth ? "true" : ""}
                 color={matchingTodo?.color} // 같은 date를 가진 todo의 circleColor 할당
+
               >
                 <div className="number">{date.date}</div>
                 <div className="calendarCircle"></div>

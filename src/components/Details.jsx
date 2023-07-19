@@ -4,10 +4,11 @@ import Detail from "../assets/images/detail.png";
 const Details = ({
   info,
   handleDelete,
-  updatedEventname,
+
+  updatedeventname,
   updatedStart,
   updatedEnd,
-  updatedColor,
+  updatedcolor,
   onInputChange,
   onClickUpdateHandler,
 }) => {
@@ -18,6 +19,7 @@ const Details = ({
       <input type="text" />
       <textarea type="text" name="inputcontent" maxLength={600} />
     </DetailWarpper>
+
   );
 };
 

@@ -26,16 +26,18 @@ function Detailcontainor() {
     navigate("/"); // 업데이트 후 메인 페이지로 이동
   };
 
-  const [updatedEventname, setUpdatedEventname] = useState("");
+
+  const [updatedeventname, setUpdatedeventname] = useState("");
   const [updatedStart, setUpdatedStart] = useState("");
   const [updatedEnd, setUpdatedEnd] = useState("");
-  const [updatedColor, setUpdatedColor] = useState("");
+  const [updatedcolor, setUpdatedcolor] = useState("");
 
   const onInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     switch (name) {
+
       case "updatedEventname":
         setUpdatedEventname(value);
         break;
@@ -47,6 +49,7 @@ function Detailcontainor() {
         break;
       case "updatedColor":
         setUpdatedColor(value);
+
         break;
       default:
         break;
@@ -60,6 +63,7 @@ function Detailcontainor() {
       start: updatedStart,
       end: updatedEnd,
       color: updatedColor,
+
     };
     handleUpdate(updatedInfo);
   };
@@ -80,10 +84,12 @@ function Detailcontainor() {
     <Details
       info={info}
       handleDelete={handleDelete}
+
       updatedEventname={updatedEventname}
       updatedStart={updatedStart}
       updatedEnd={updatedEnd}
       updatedColor={updatedColor}
+
       onInputChange={onInputChange}
       onClickUpdateHandler={onClickUpdateHandler}
     ></Details>
