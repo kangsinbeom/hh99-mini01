@@ -1,23 +1,12 @@
 import styled from "styled-components";
-import Modal from "./Modal";
-import { useQuery } from "react-query";
-import { getTodos } from "../apis/api";
+import ModalContainor from "../containor/ModalContainor";
 
-const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
-  const { data, isLoading } = useQuery("todos", getTodos);
-
-  // queryClient가 data값을 가져올때 동기적으로 가져와서 find로 찾지못했던것
-  // 비동기적으로 가져오는 useQuery를 사용해서 해결
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
+const CalendarItem = ({ calendars, onDateClick, modalChecked, data }) => {
   return (
     <CalendarBody>
       {calendars?.map((days, inx) => (
         <CalendarRow key={inx}>
           {days?.map((date) => {
-            // 캐시된 데이터에서 같은 date를 가진 항목 찾기
             const matchingTodo = data?.find((todo) => todo.date === date.id);
             return (
               <CalendarCell
@@ -27,8 +16,7 @@ const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
                 $isSun={date.isSun ? "true" : ""}
                 $isSat={date.isSat ? "true" : ""}
                 $isSameMonth={date.isSameMonth ? "true" : ""}
-                color={matchingTodo?.color} // 같은 date를 가진 todo의 circleColor 할당
-
+                color={matchingTodo?.color}
               >
                 <div className="number">{date.date}</div>
                 <div className="calendarCircle"></div>
@@ -37,7 +25,7 @@ const CalendarItem = ({ calendars, onDateClick, modalChecked }) => {
           })}
         </CalendarRow>
       ))}
-      {modalChecked && <Modal />}
+      {modalChecked && <ModalContainor />}
     </CalendarBody>
   );
 };
