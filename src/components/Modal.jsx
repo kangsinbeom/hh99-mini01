@@ -8,21 +8,19 @@ import { addTodo } from "../apis/api";
 import { useEffect, useState } from "react";
 
 const Modal = () => {
-  const { modalChecked, date, circleColor } = useSelector(
-    (state) => state.modal
-  );
+  const { modalChecked, date, color } = useSelector((state) => state.modal);
 
   const [todo, setTodo] = useState({
-    eventName: "",
+    eventname: "",
     start: "",
     end: "",
     date,
-    circleColor,
+    color,
   });
   const onChangeTodosHandler = (e) => {
     const { name, value } = e.target;
     let newValue = value;
-    name !== "eventName" && (newValue = value.replace(/\D/g, ""));
+    name !== "eventname" && (newValue = value.replace(/\D/g, ""));
     const newTodo = {
       ...todo,
       [name]: newValue,
@@ -33,10 +31,10 @@ const Modal = () => {
   useEffect(() => {
     let newColor = {
       ...todo,
-      circleColor,
+      color,
     };
     setTodo(newColor);
-  }, [circleColor]);
+  }, [color]);
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
@@ -54,11 +52,11 @@ const Modal = () => {
     mutation.mutate(todo);
     dispatch(toogleModal());
     setTodo({
-      eventName: "",
+      eventname: "",
       start: "",
       end: "",
       date,
-      circleColor: "red",
+      color: "red",
     });
   };
 
@@ -66,18 +64,18 @@ const Modal = () => {
     <>
       {modalChecked && (
         <>
-          <ModalContent $circleColor={circleColor}>
+          <ModalContent $color={color}>
             <span>할 일</span>
             {/* css가 undefined가 뜨는데 왜일까? */}
             <div className="circle" />
             <p className="date">날짜 : {date}</p>
-            <p className="count">{todo.eventName.length}/20</p>
+            <p className="count">{todo.eventname.length}/20</p>
             <InputBox
               type="text"
               maxLength={19}
               width={220}
-              name="eventName"
-              value={todo.eventName}
+              name="eventname"
+              value={todo.eventname}
               onChange={(e) => onChangeTodosHandler(e)}
             />
             <Selecter />
@@ -181,7 +179,7 @@ const ModalContent = styled.div`
     top: 9%;
     width: 20px;
     height: 20px;
-    background-color: ${(props) => props.$circleColor};
+    background-color: ${(props) => props.$color};
     border-radius: 100%;
     border: 1px solid black;
   }

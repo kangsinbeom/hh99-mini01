@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   date: "",
   modalChecked: false,
-  circleColor : "red",
+  color : "red",
 }
 
 const modalSlice = createSlice({
@@ -17,7 +17,7 @@ const modalSlice = createSlice({
       state.modalChecked = !state.modalChecked;
     },
     changeModalColor : (state, action) =>{
-      state.circleColor = action.payload
+      state.color = action.payload
     },
   }
 })

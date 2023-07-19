@@ -1,27 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import Detail from "../assets/images/detail.png";
 const Details = ({
   info,
   handleDelete,
-  updatedEventName,
+  updatedEventname,
   updatedStart,
   updatedEnd,
-  updatedCircleColor,
+  updatedColor,
   onInputChange,
   onClickUpdateHandler,
 }) => {
-  const { eventName, start, end, circleColor } = info;
-  // console.log(eventName);
+  const { eventname, start, end, color } = info;
 
   return (
-    <DetailWarpper>
+    <DetailWarpper img={Detail}>
       <h1>Detail Page</h1>
       <div>
-        <p>Event Name: {eventName}</p>
+        <p>Event Name: {eventname}</p>
         <input
           type="text"
-          name="updatedEventName"
-          value={updatedEventName}
+          name="updatedEventname"
+          value={updatedEventname}
           onChange={onInputChange}
         />
         <p>Start Time: {start}시</p>
@@ -42,10 +42,10 @@ const Details = ({
           min="0"
           max="24"
         />
-        <p>Circle Color: {circleColor}</p>
+        <p>Circle Color: {color}</p>
         <select
-          name="updatedCircleColor"
-          value={updatedCircleColor}
+          name="updatedColor"
+          value={updatedColor}
           onChange={onInputChange}
         >
           <option value="red">red</option>

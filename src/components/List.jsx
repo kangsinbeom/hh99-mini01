@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
 import { useNavigate } from "react-router-dom";
@@ -16,10 +16,10 @@ const List = ({ filteredData }) => {
         <ListItem
           key={item.id}
           time={item.time}
-          eventName={item.eventName}
+          eventname={item.eventname}
           start={item.start}
           end={item.end}
-          circleColor={item.circleColor}
+          color={item.color}
           todoId={item.id}
           onClick={() => onClickNavHandler(item.id)}
         />
