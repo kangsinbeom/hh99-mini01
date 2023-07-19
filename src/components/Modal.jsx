@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "./common/Button";
-import { toogleModal } from "../redux/modules/modal";
+import { changeModalColor, toogleModal } from "../redux/modules/modal";
 import Selecter from "./common/Selector";
-import { QueryClient, useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { addTodo } from "../apis/api";
 import { useEffect, useState } from "react";
 
@@ -46,9 +46,17 @@ const Modal = () => {
 
   const onClickModalHandler = () => {
     dispatch(toogleModal());
+    dispatch(changeModalColor("red"));
   };
 
   const onClickSubmitHandler = () => {
+    if (todo.eventname === "" || todo.start === "" || todo.end === "") {
+      return alert("입력을 제대로 안함");
+    }
+    if (todo.start > todo.end || 24 < todo.end) {
+      return alert("시간이 이게 맞나요?");
+    }
+
     mutation.mutate(todo);
     dispatch(toogleModal());
     setTodo({
@@ -204,9 +212,6 @@ const ModalContent = styled.div`
     left: 65%;
     top: 0;
   }
-  > input {
-  }
-
   > span {
     margin-right: auto;
     margin-left: 10px;
