@@ -1,11 +1,11 @@
 import styled from "styled-components";
 // import List from "../components/List";
-import Calendar from "../components/Calendar";
+import CalendarContainor from "../containor/CalendarContainor";
 
 const Home = () => {
   return (
     <Div>
-      <Calendar></Calendar>
+      <CalendarContainor />
     </Div>
   );
 };

@@ -1,15 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ListItem from "./ListItem";
-import { useNavigate } from "react-router-dom";
 
-const List = ({ filteredData }) => {
-  const navigate = useNavigate();
-
-  const onClickNavHandler = (id) => {
-    navigate(`/detail/${id}`);
-  };
-
+const List = ({ filteredData, onClickNavHandler }) => {
   return (
     <ListWrapper>
       {filteredData?.map((item) => (

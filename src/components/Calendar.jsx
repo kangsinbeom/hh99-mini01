@@ -8,28 +8,14 @@ import Larrow from "../assets/images/arrowleft.png";
 import ListContainor from "../containor/ListContainor";
 import CalendarItemContainor from "../containor/CalendarItemContainor";
 
-const Calendar = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  const month = format(currentMonth, "M");
-  useCalendar(currentMonth);
-
-  const prevMonth = () => {
-    setCurrentMonth(subMonths(currentMonth, 1));
-  };
-
-  const nextMonth = () => {
-    setCurrentMonth(addMonths(currentMonth, 1));
-  };
-
-  // onClick시 day 정보 redux로 전달 및 modal open/close
-
+const Calendar = ({ currentMonth, month, prevMonth, nextMonth }) => {
   return (
     <>
       <CalendarWrapper>
         <Header>
           <div>
             <CalendarHeader>
-              {format(currentMonth, "yyyy")} {month}월
+              {format(currentMonth, "yyyy")} {format(currentMonth, "M")}월
             </CalendarHeader>
           </div>
           <div>
