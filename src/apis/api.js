@@ -3,32 +3,32 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const MOCK_URL = process.env.REACT_APP_MOCK_URL;
 const instance = axios.create({
-  baseURL: MOCK_URL,
+  baseURL: BASE_URL,
   headers: {},
 });
 
 const getTodos = async () => {
-  const response = await instance.get("/todos");
+  const response = await instance.get("/api/memo");
   return response.data;
 };
 
 const addTodo = async (newTodo) => {
-  const response = await instance.post("/todos", newTodo);
+  const response = await instance.post("/api/memo", newTodo);
   return response.data;
 };
 
 const deleteTodo = async (id) => {
-  const response = await instance.delete(`/todos/${id}`);
+  const response = await instance.delete(`/api/memo/${id}`);
   return response.data;
 };
 
 const updateTodo = async (id, updatedTodo) => {
-  const response = await instance.put(`/todos/${id}`, updatedTodo);
+  const response = await instance.put(`/api/memo/${id}`, updatedTodo);
   return response.data;
 };
 
 const getTodo = async (id) => {
-  const response = await instance.get("/todos");
+  const response = await instance.get("/api/memo");
   const todo = response.data.filter((todo) => todo.id === parseInt(id));
   return todo;
 };
