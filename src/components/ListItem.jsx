@@ -31,4 +31,13 @@ const ListItmeBox = styled.div`
     font-size: 23px;
     background-color: #dad8d8;
   }
+
+  @media (max-width: 900px) {
+    font-size: 17px;
+    width: 100px;
+    margin: 15px;
+    &:hover {
+      font-size: 18px;
+    }
+  }
 `;

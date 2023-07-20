@@ -20,6 +20,7 @@ const Selecter = () => {
 
   const OptionClick = (option) => {
     setSelectBtnText(option);
+    console.log(option);
     dispatch(changeModalColor(option));
     setSelectBox(!selectBox);
   };
@@ -60,7 +61,7 @@ const SelectList = styled.ul`
   border-radius: 25px;
   overflow: hidden;
   padding: 10px;
-  background-color: transparent;
+  background-color: white;
   border: 2px solid black;
 `;
 const SelectItem = styled.li`
@@ -75,11 +76,11 @@ const SelectItem = styled.li`
   color: black;
   cursor: pointer;
   &:hover {
-    background-color: white;
+    background-color: gray;
   }
 `;
 const ItemNonHidden = styled.div`
   position: absolute;
-  transform: translate(40%, 80%);
+  transform: translate(75%, 80%);
   z-index: 1000;
 `;

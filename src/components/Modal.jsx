@@ -1,65 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "./common/Button";
-import { toogleModal } from "../redux/modules/modal";
 import Selecter from "./common/Selector";
-import { QueryClient, useMutation, useQueryClient } from "react-query";
-import { addTodo } from "../apis/api";
-import { useEffect, useState } from "react";
 
-const Modal = () => {
-  const { modalChecked, date, color } = useSelector((state) => state.modal);
-
-  const [todo, setTodo] = useState({
-    eventname: "",
-    start: "",
-    end: "",
-    date,
-    color,
-  });
-  const onChangeTodosHandler = (e) => {
-    const { name, value } = e.target;
-    let newValue = value;
-    name !== "eventname" && (newValue = value.replace(/\D/g, ""));
-    const newTodo = {
-      ...todo,
-      [name]: newValue,
-    };
-    setTodo(newTodo);
-  };
-
-  useEffect(() => {
-    let newColor = {
-      ...todo,
-      color,
-    };
-    setTodo(newColor);
-  }, [color]);
-  const dispatch = useDispatch();
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation(addTodo, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("todos");
-    },
-  });
-
-  const onClickModalHandler = () => {
-    dispatch(toogleModal());
-  };
-
-  const onClickSubmitHandler = () => {
-    mutation.mutate(todo);
-    dispatch(toogleModal());
-    setTodo({
-      eventname: "",
-      start: "",
-      end: "",
-      date,
-      color: "red",
-    });
-  };
-
+const Modal = ({
+  modalChecked,
+  onChangeTodosHandler,
+  onClickModalHandler,
+  onClickSubmitHandler,
+  color,
+  date,
+  todo,
+}) => {
   return (
     <>
       {modalChecked && (
@@ -89,15 +40,6 @@ const Modal = () => {
                     value={todo.start}
                     onChange={(e) => onChangeTodosHandler(e)}
                   />
-                  {/* <span
-                    onClick={(e) => {
-                      e.target.innerText === "PM"
-                        ? (e.target.innerText = "AM")
-                        : (e.target.innerText = "PM");
-                    }}
-                  >
-                    PM
-                  </span> */}
                 </div>
               </div>
               <span>~</span>
@@ -110,15 +52,6 @@ const Modal = () => {
                     value={todo.end}
                     onChange={(e) => onChangeTodosHandler(e)}
                   />
-                  {/* <span
-                    onClick={(e) => {
-                      e.target.innerText === "PM"
-                        ? (e.target.innerText = "AM")
-                        : (e.target.innerText = "PM");
-                    }}
-                  >
-                    PM
-                  </span> */}
                 </div>
               </div>
             </ClockWrapper>
@@ -204,9 +137,6 @@ const ModalContent = styled.div`
     left: 65%;
     top: 0;
   }
-  > input {
-  }
-
   > span {
     margin-right: auto;
     margin-left: 10px;

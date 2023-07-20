@@ -1,35 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { format, addMonths, subMonths } from "date-fns";
-import useCalendar from "../hooks/useCalendar";
+import { format } from "date-fns";
 import img from "../assets/images/calender.png";
 import Rarrow from "../assets/images/arrowright.png";
 import Larrow from "../assets/images/arrowleft.png";
 import ListContainor from "../containor/ListContainor";
 import CalendarItemContainor from "../containor/CalendarItemContainor";
 
-const Calendar = () => {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  const month = format(currentMonth, "M");
-  useCalendar(currentMonth);
-
-  const prevMonth = () => {
-    setCurrentMonth(subMonths(currentMonth, 1));
-  };
-
-  const nextMonth = () => {
-    setCurrentMonth(addMonths(currentMonth, 1));
-  };
-
-  // onClick시 day 정보 redux로 전달 및 modal open/close
-
+const Calendar = ({ currentMonth, month, prevMonth, nextMonth }) => {
   return (
-    <>
+    <Layout>
       <CalendarWrapper>
         <Header>
           <div>
             <CalendarHeader>
-              {format(currentMonth, "yyyy")} {month}월
+              {format(currentMonth, "yyyy")}년 {format(currentMonth, "M")}월
             </CalendarHeader>
           </div>
           <div>
@@ -47,7 +32,7 @@ const Calendar = () => {
         <CarendarImg src={img}></CarendarImg>
       </CalendarWrapper>
       <ListContainor month={month} />
-    </>
+    </Layout>
   );
 };
 
@@ -81,6 +66,7 @@ const CalendarHeader = styled.h2`
   filter: blur(0.3px);
   margin-left: 10px;
   font-size: 20px;
+  filter: blur(0.5px);
 `;
 
 const HeaderArrow = styled.img`
@@ -105,4 +91,12 @@ const Days = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+`;
+const Layout = styled.div`
+  @media (max-width: 900px) {
+    margin: auto;
+  }
+  @media (min-width: 901px) {
+    display: flex;
+  }
 `;
