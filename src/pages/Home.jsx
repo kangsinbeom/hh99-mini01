@@ -1,7 +1,6 @@
 import styled from "styled-components";
 // import List from "../components/List";
 import CalendarContainor from "../containor/CalendarContainor";
-
 const Home = () => {
   return (
     <Div>
