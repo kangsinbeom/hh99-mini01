@@ -43,7 +43,7 @@ const CalendarRow = styled.div`
 const CalendarCell = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 15%;
+  width: 100px;
   height: 56px;
   font-size: 24px;
   margin-left: 13px;

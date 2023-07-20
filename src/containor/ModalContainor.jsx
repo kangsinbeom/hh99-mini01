@@ -50,7 +50,7 @@ const ModalContainor = () => {
     if (todo.eventname === "" || todo.start === "" || todo.end === "") {
       return alert("입력을 제대로 안함");
     }
-    if (todo.start > todo.end || 24 < todo.end) {
+    if (+todo.start > +todo.end || 24 < +todo.end) {
       return alert("시간이 이게 맞나요?");
     }
 

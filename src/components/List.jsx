@@ -24,15 +24,25 @@ const List = ({ filteredData, onClickNavHandler }) => {
 export default List;
 
 const ListWrapper = styled.div`
-  display: grid;
-  /* border: 1px solid black; */
-  width: 20%;
-  margin-top: 60px;
-  margin-left: 40px;
-  max-height: 310px;
-  overflow: auto;
-  &::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 900px) {
+    // background-color: red;
+    display: flex;
+    width: 650px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 40px auto;
   }
-  gap: 15px;
+  @media (min-width: 901px) {
+    display: grid;
+    width: 20%;
+    margin-top: 60px;
+    margin-left: 40px;
+    max-height: 310px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    gap: 15px;
+  }
 `;

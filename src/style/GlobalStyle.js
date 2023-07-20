@@ -16,7 +16,7 @@ const GlobalSylte = createGlobalStyle`
   }
 
   h2 {
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Gaegu', cursive;
   }
 `;
 
