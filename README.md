@@ -18,7 +18,7 @@ BE : 손정혁, 윤성혁
 <br><br/>
 >  github 주소
 - FE : https://github.com/kangsinbeom/hh99-mini01
-- BE : 
+- BE : https://github.com/yun-seonghyuk/miniproject
 <br><br/>
 
 ## :pushpin: preview
@@ -41,4 +41,4 @@ BE : 손정혁, 윤성혁
 ## :mag_right: 관련기술
 FE : date-fns (시간 관련 라이브러리), react-query (비동기 통신 데이터 관리), redux-toolkit (전역상태관리), styled-component (CSS관련 라이브러리), aixos (통신)
 <br><br/>
-BE : 
+BE : aws ec2, rds (배포) , githubactions(ci cd : 지속적인 통합 ,지속적인 배포), mysql(데이터 베이스), postman(api 관련툴),springboot(프레임워크) ,granle(빌드 및 실행 방법) ,java17
